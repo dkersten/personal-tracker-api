@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { Pool } = require('pg')
-const db = require('./queries.js')
+const dbActivity = require('./activities/queries.js')
 require('dotenv').config()
 const app = express()
 const port = 3000
@@ -17,7 +17,9 @@ app.get('/', (request, response) => {
     response.json({ stuff: 'This is just static stuff' })
 })
 
-app.get('/activities', db.getActivities)
+app.get('/activities', dbActivity.getActivities)
+app.get('/activities/:id', dbActivity.getActivity)
+app.post('/activities', dbActivity.createActivity)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

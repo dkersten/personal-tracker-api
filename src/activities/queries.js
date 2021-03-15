@@ -28,14 +28,14 @@ const getActivity = (req, res) => {
 }
 
 const createActivity = (req, res) => {
-  const {category, name, date, description} = req.body
+  const { category, name, date, description } = req.body
 
-  pool.query('INSERT INTO activities (category, name, date, description) VALUES ($1, $2, $3, $4', [category, name, date, description], (error, results) => {
-    if (error) {
-      throw error
-    }
-    res.status(201).send('Activity added')
-  })
+  pool.query('INSERT INTO activities (category, name, date, description) VALUES ($1, $2, $3, $4)', [category, name, date, description], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.status(201).send(`Activity added`)
+    })
 }
 
   module.exports = {

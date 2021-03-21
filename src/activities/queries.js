@@ -16,6 +16,16 @@ const getActivities = (req, res) => {
   })
 }
 
+const getActivitiesWeek = (req, res) => {
+
+  pool.query("SELECT * FROM activities WHERE date > current_date - interval '7 days'", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
 const getActivity = (req, res) => {
   const id = parseInt(req.params.id)
 
@@ -40,6 +50,7 @@ const createActivity = (req, res) => {
 
   module.exports = {
       getActivities,
+      getActivitiesWeek,
       getActivity,
       createActivity
   }

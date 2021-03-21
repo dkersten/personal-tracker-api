@@ -20,6 +20,7 @@ app.get('/', (request, response) => {
 })
 
 app.get('/activities', dbActivity.getActivities)
+app.get('/activities/week', dbActivity.getActivitiesWeek)
 app.get('/activities/:id', dbActivity.getActivity)
 app.post('/activities', dbActivity.createActivity)
 

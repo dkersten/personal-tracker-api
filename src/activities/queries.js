@@ -26,6 +26,16 @@ const getActivitiesWeek = (req, res) => {
   })
 }
 
+const getActivitiesMonth = (req, res) => {
+
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', CURRENT_DATE)", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
 const getActivity = (req, res) => {
   const id = parseInt(req.params.id)
 
@@ -51,6 +61,7 @@ const createActivity = (req, res) => {
   module.exports = {
       getActivities,
       getActivitiesWeek,
+      getActivitiesMonth,
       getActivity,
       createActivity
   }

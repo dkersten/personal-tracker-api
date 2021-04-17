@@ -22,8 +22,10 @@ app.get('/', (request, response) => {
 app.get('/activities', dbActivity.getActivities)
 app.get('/activities/week', dbActivity.getActivitiesWeek)
 app.get('/activities/month', dbActivity.getActivitiesMonth)
-app.get('/activities/:id', dbActivity.getActivity)
+app.get('/activities/date', dbActivity.getActivitiesDay)
 app.post('/activities', dbActivity.createActivity)
+app.get('/activities/:id', dbActivity.getActivity)
+
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

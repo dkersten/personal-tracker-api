@@ -22,7 +22,7 @@ app.get('/', (request, response) => {
 app.get('/activities', dbActivity.getActivities)
 app.get('/activities/week', dbActivity.getActivitiesWeek)
 app.get('/activities/month', dbActivity.getActivitiesMonth)
-app.get('/activities/date', dbActivity.getActivitiesDay)
+app.get('/activities/date/:date', dbActivity.getActivitiesDay)
 app.post('/activities', dbActivity.createActivity)
 app.get('/activities/:id', dbActivity.getActivity)
 

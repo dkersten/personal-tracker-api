@@ -37,10 +37,129 @@ const getActivitiesMonth = (req, res) => {
   })
 }
 
-// get all activities for the last nth month
-const getActivitiesNthMonth = (req, res) => {
+// get all activities for the last nth month (this needs work to DRY up)
+// const getActivitiesNthMonth = (req, res) => {
+//   const monthNum = req.params.month
 
+//   console.dir(monthNum)
+
+//   pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '2 month') and date < date_trunc('month', current_date - interval '1 month')", (error, results) => {
+//     if (error) {
+//       throw error
+//     }
+//     res.status(200).json(results.rows)
+//   })
+// }
+
+const getActivitiesMonth1 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '1 month') and date < date_trunc('month', current_date)", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
 }
+
+const getActivitiesMonth2 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '2 month') and date < date_trunc('month', current_date - interval '1 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth3 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '3 month') and date < date_trunc('month', current_date - interval '2 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth4 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '4 month') and date < date_trunc('month', current_date - interval '3 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth5 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '5 month') and date < date_trunc('month', current_date - interval '4 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth6 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '6 month') and date < date_trunc('month', current_date - interval '5 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth7 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '7 month') and date < date_trunc('month', current_date - interval '6 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth8 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '8 month') and date < date_trunc('month', current_date - interval '7 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth9 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '9 month') and date < date_trunc('month', current_date - interval '8 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth10 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '10 month') and date < date_trunc('month', current_date - interval '9 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth11 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '11 month') and date < date_trunc('month', current_date - interval '10 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+const getActivitiesMonth12 = (req, res) => {
+  pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', current_date - interval '12 month') and date < date_trunc('month', current_date - interval '11 month')", (error, results) => {
+    if (error) {
+      throw error
+    }
+    res.status(200).json(results.rows)
+  })
+}
+
+
 
 // get all activities for a particular date
 const getActivitiesDay = (req, res) => {
@@ -85,5 +204,17 @@ const createActivity = (req, res) => {
       getActivity,
       createActivity,
       getActivitiesDay,
-      getActivitiesNthMonth
+      // getActivitiesNthMonth,
+      getActivitiesMonth1,
+      getActivitiesMonth2,
+      getActivitiesMonth3,
+      getActivitiesMonth4,
+      getActivitiesMonth5,
+      getActivitiesMonth6,
+      getActivitiesMonth7,
+      getActivitiesMonth8,
+      getActivitiesMonth9,
+      getActivitiesMonth10,
+      getActivitiesMonth11,
+      getActivitiesMonth12
   }

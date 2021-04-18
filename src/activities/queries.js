@@ -37,12 +37,7 @@ const getActivitiesMonth = (req, res) => {
 }
 
 const getActivitiesDay = (req, res) => {
-
-  console.dir(req.params.date)
-  // const { year, month, day } = req.body
-
-  const date = '2021-04-12'
-  // const date = year + '-' + month + '-' + day
+  const date = req.params.date
   
 
   pool.query("SELECT * FROM activities WHERE (date = $1)", [date], (error, results) => {
@@ -51,13 +46,6 @@ const getActivitiesDay = (req, res) => {
     }
     res.status(200).json(results.rows)
   })
-
-  // pool.query("SELECT * FROM activities WHERE (date = '2021-04-09')", (error, results) => {
-  //   if (error) {
-  //     throw error
-  //   }
-  //   res.status(200).json(results.rows)
-  // })
 }
 
 const getActivity = (req, res) => {

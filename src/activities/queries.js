@@ -7,6 +7,7 @@ const pool = new Pool({
   port: process.env.DB_PORT,
 })
 
+// get all activities
 const getActivities = (req, res) => {
   pool.query('SELECT * FROM activities ORDER BY id ASC', (error, results) => {
     if (error) {
@@ -16,8 +17,8 @@ const getActivities = (req, res) => {
   })
 }
 
+// get all activities for the past 7 days
 const getActivitiesWeek = (req, res) => {
-
   pool.query("SELECT * FROM activities WHERE date > current_date - interval '7 days'", (error, results) => {
     if (error) {
       throw error
@@ -26,8 +27,8 @@ const getActivitiesWeek = (req, res) => {
   })
 }
 
+// get all activities for the current month
 const getActivitiesMonth = (req, res) => {
-
   pool.query("SELECT * FROM activities WHERE date >= date_trunc('month', CURRENT_DATE)", (error, results) => {
     if (error) {
       throw error
@@ -36,10 +37,15 @@ const getActivitiesMonth = (req, res) => {
   })
 }
 
+// get all activities for the last nth month
+const getActivitiesNthMonth = (req, res) => {
+
+}
+
+// get all activities for a particular date
 const getActivitiesDay = (req, res) => {
   const date = req.params.date
   
-
   pool.query("SELECT * FROM activities WHERE (date = $1)", [date], (error, results) => {
     if (error) {
       throw error
@@ -48,6 +54,7 @@ const getActivitiesDay = (req, res) => {
   })
 }
 
+// get individual activity (by id)
 const getActivity = (req, res) => {
   const id = parseInt(req.params.id)
 
@@ -59,6 +66,7 @@ const getActivity = (req, res) => {
   })
 }
 
+// add new activity
 const createActivity = (req, res) => {
   const { category, name, date, description } = req.body
 
@@ -76,5 +84,6 @@ const createActivity = (req, res) => {
       getActivitiesMonth,
       getActivity,
       createActivity,
-      getActivitiesDay
+      getActivitiesDay,
+      getActivitiesNthMonth
   }

@@ -33,7 +33,7 @@ app.get('/activities/month', dbActivity.getActivitiesMonth)
 // get all activities for the last nth month
 // app.get('/activities/month/:month', dbActivity.getActivitiesNthMonth)
 
-// non DRY --> figure a way out to use SQL arguements
+// not DRY --> figure a way out to use SQL arguements
 // month - 1
 app.get('activities/month/1', dbActivity.getActivitiesMonth1)
 // month - 2

@@ -35,29 +35,29 @@ app.get('/activities/month', dbActivity.getActivitiesMonth)
 
 // not DRY --> figure a way out to use SQL arguements
 // month - 1
-app.get('activities/month/1', dbActivity.getActivitiesMonth1)
+app.get('/activities/month/1', dbActivity.getActivitiesMonth1)
 // month - 2
-app.get('activities/month/2', dbActivity.getActivitiesMonth2)
+app.get('/activities/month/2', dbActivity.getActivitiesMonth2)
 // month - 3
-app.get('activities/month/3', dbActivity.getActivitiesMonth3)
+app.get('/activities/month/3', dbActivity.getActivitiesMonth3)
 // month - 4
-app.get('activities/month/4', dbActivity.getActivitiesMonth4)
+app.get('/activities/month/4', dbActivity.getActivitiesMonth4)
 // month - 5
-app.get('activities/month/5', dbActivity.getActivitiesMonth5)
+app.get('/activities/month/5', dbActivity.getActivitiesMonth5)
 // month - 6
-app.get('activities/month/6', dbActivity.getActivitiesMonth6)
+app.get('/activities/month/6', dbActivity.getActivitiesMonth6)
 // month - 7
-app.get('activities/month/7', dbActivity.getActivitiesMonth7)
+app.get('/activities/month/7', dbActivity.getActivitiesMonth7)
 // month - 8
-app.get('activities/month/8', dbActivity.getActivitiesMonth8)
+app.get('/activities/month/8', dbActivity.getActivitiesMonth8)
 // month - 9
-app.get('activities/month/9', dbActivity.getActivitiesMonth9)
+app.get('/activities/month/9', dbActivity.getActivitiesMonth9)
 // month - 10
-app.get('activities/month/10', dbActivity.getActivitiesMonth10)
+app.get('/activities/month/10', dbActivity.getActivitiesMonth10)
 // month - 11
-app.get('activities/month/11', dbActivity.getActivitiesMonth11)
+app.get('/activities/month/11', dbActivity.getActivitiesMonth11)
 // month - 12
-app.get('activities/month/12', dbActivity.getActivitiesMonth12)
+app.get('/activities/month/12', dbActivity.getActivitiesMonth12)
 
 // get all activities for a particular date
 app.get('/activities/date/:date', dbActivity.getActivitiesDay)
